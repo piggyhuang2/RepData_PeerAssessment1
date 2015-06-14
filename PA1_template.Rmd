@@ -1,7 +1,6 @@
 ---
 ## Reproducible Research: Peer Assessment 1
 ### Author: Lily Huang
-### Date: `r date()`
 
 ### Loading and preprocessing the data
 ```{r}
