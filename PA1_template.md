@@ -18,7 +18,7 @@ activity <- read.csv("activity.csv",header=TRUE)
 ```
 
 ## What is mean total number of steps taken per day?
-### Make a histogram of frequenct of total number of steps taken each day
+* Make a histogram of frequenct of total number of steps taken each day
 
 
 ```r
@@ -41,9 +41,8 @@ hist(dailyTotalSteps,col="steelblue",breaks=6,xlab="Number of Steps Per day",mai
 ```
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
-### Calculate the mean and median of total number of steps taken each day
+* Calculate the mean and median of total number of steps taken each day
 
-* calculate mean of total number of steps taken per day
 
 
 ```r
@@ -54,7 +53,6 @@ mean(dailyTotalSteps,na.rm=T)
 ## [1] 10766.19
 ```
 
-* calculate median of total number of steps taken per day
 
 
 ```r
@@ -103,7 +101,7 @@ which(stepsPerInterval == max(stepsPerInterval))
 
 
 ## Imputing missing values
-####  Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+* Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 ```r
 sum(as.numeric(is.na(activity$steps)))
@@ -113,11 +111,11 @@ sum(as.numeric(is.na(activity$steps)))
 ## [1] 2304
 ```
 
-- Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
+* Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
-- Create a new dataset that is equal to the original dataset but with the missing data filled in.
+* Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
-- Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+* Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 ```r
 # transform steps data per interval into vector and replicate it for 61 times
@@ -150,9 +148,9 @@ hist(stepsTotalPerDay_NoMissing, breaks = 6, main = "Frequency of number of step
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
-#### Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+* Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
-#### Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+* Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 ```r
 # Create a factor variable with two levels (weekday, weekend-day)

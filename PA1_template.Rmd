@@ -1,38 +1,36 @@
 ---
-# "Reproducible Research: Peer Assessment 1"
+## Reproducible Research: Peer Assessment 1
+### Author: Lily Huang
+### Date: `r date()`
 
-
-## Loading and preprocessing the data
+### Loading and preprocessing the data
 ```{r}
 setwd("C:/Users/Jingmin/Documents")
 getwd()
 activity <- read.csv("activity.csv",header=TRUE)
-
 ```
 
-## What is mean total number of steps taken per day?
-### Make a histogram of frequenct of total number of steps taken each day
+### What is mean total number of steps taken per day?
+* Make a histogram of frequenct of total number of steps taken each day
 
 ```{r}
 head(activity)
 dailyTotalSteps <- tapply(activity$steps,activity$date,sum)
 hist(dailyTotalSteps,col="steelblue",breaks=6,xlab="Number of Steps Per day",main="Frequency of Number of Steps Per day")
 ```
-### Calculate the mean and median of total number of steps taken each day
+* Calculate the mean and median of total number of steps taken each day
 
-* calculate mean of total number of steps taken per day
 
 ```{r}
 mean(dailyTotalSteps,na.rm=T)
 ```
 
-* calculate median of total number of steps taken per day
 
 ```{r}
 median(dailyTotalSteps,na.rm=T)
 ```
 
-## What is the average daily activity pattern?
+### What is the average daily activity pattern?
 ```{r}
 head(activity)
 stepsPerInterval <- tapply(activity$steps,activity$interval,mean,na.rm=T)
@@ -47,8 +45,8 @@ which(stepsPerInterval == max(stepsPerInterval))
 ```
 
 
-## Imputing missing values
-####  Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+### Imputing missing values
+* Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 ```{r}
 sum(as.numeric(is.na(activity$steps)))
 ```
@@ -86,10 +84,10 @@ hist(stepsTotalPerDay_NoMissing, breaks = 6, main = "Frequency of number of step
 ```
 
 
-## Are there differences in activity patterns between weekdays and weekends?
-#### Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+### Are there differences in activity patterns between weekdays and weekends?
+* Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
-#### Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+* Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 ```{r}
 # Create a factor variable with two levels (weekday, weekend-day)
 tmpLT <- as.POSIXlt(activity$date, format = "%Y-%m-%d")
